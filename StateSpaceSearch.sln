@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StateSpaceSearch", "StateSpaceSearch\StateSpaceSearch.csproj", "{02E97F8E-D904-40AD-AE41-A1B9C3EF75BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StateSpaceSearchTest", "StateSpaceSearchTest\StateSpaceSearchTest.csproj", "{B6BD77F6-57C4-46B1-9868-160FB4DF345A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{02E97F8E-D904-40AD-AE41-A1B9C3EF75BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02E97F8E-D904-40AD-AE41-A1B9C3EF75BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02E97F8E-D904-40AD-AE41-A1B9C3EF75BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02E97F8E-D904-40AD-AE41-A1B9C3EF75BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6BD77F6-57C4-46B1-9868-160FB4DF345A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6BD77F6-57C4-46B1-9868-160FB4DF345A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6BD77F6-57C4-46B1-9868-160FB4DF345A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6BD77F6-57C4-46B1-9868-160FB4DF345A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
