@@ -6,15 +6,14 @@ namespace StateSpaceSearch
 {
     public class JarsState
     {
-        public JarsState(int g3, int g8, int g12)
+        public JarsState(int jar1, int jar2, int jar3)
         {
-            Amount = new[] {g3, g8, g12};
+            Amount = new[] {jar1, jar2, jar3};
         }
 
         public static bool IsGoal(JarsState currentState)
         {
             var amount = currentState.Amount;
-
             //return (amount[0] + amount[1] + amount[2] == 1);
             return amount[0] == 1 || amount[1] == 1 || amount[2] == 1;
         }
@@ -23,25 +22,25 @@ namespace StateSpaceSearch
         {
             var amount = currentState.Amount;
 
-            IList<JarsState> states = new List<JarsState>();
+            IList<JarsState> nextStates = new List<JarsState>();
 
             for (var jar = 0; jar < 3; jar++)
             {
-                if (amount[jar] < JarCapacity.Capacity[jar]) states.Add(StateAction.Fill(jar, currentState));
+                if (amount[jar] < Capacity[jar]) nextStates.Add(StateAction.Fill(jar, currentState));
 
                 if (amount[jar] <= 0) continue;
 
-                states.Add(StateAction.EmptyJar(jar, currentState));
+                nextStates.Add(StateAction.EmptyJar(jar, currentState));
 
                 for (var to = 0; to < 3; to++)
                 {
-                    if (jar == to || amount[to] == JarCapacity.Capacity[to]) continue;
+                    if (jar == to || amount[to] == Capacity[to]) continue;
 
-                    states.Add(StateAction.EmptyFromTo(jar, to, currentState));
+                    nextStates.Add(StateAction.EmptyFromTo(jar, to, currentState));
                 }
             }
 
-            return states;
+            return nextStates;
         }
 
         public static void PrintSequence(JarsState state)
@@ -58,6 +57,8 @@ namespace StateSpaceSearch
                 Console.WriteLine(state1);
             }
         }
+
+        public static readonly int[] Capacity = { 3, 8, 12 };
 
         public JarsState Clone()
         {

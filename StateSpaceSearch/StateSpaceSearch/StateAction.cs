@@ -1,22 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace StateSpaceSearch
+﻿namespace StateSpaceSearch
 {
     public static class StateAction
     {
         public static JarsState Fill(int jar, JarsState currentState)
         {
-            JarsState newState = currentState.Clone();
-            newState.Amount[jar] = JarCapacity.Capacity[jar];
+            var newState = currentState.Clone();
+            newState.Amount[jar] = JarsState.Capacity[jar];
             newState.Parent = currentState;
             return newState;
         }
 
         public static JarsState EmptyJar(int jar, JarsState currentState)
         {
-            JarsState newState = currentState.Clone();
+            var newState = currentState.Clone();
             newState.Amount[jar] = 0;
             newState.Parent = currentState;
             return newState;
@@ -24,11 +20,11 @@ namespace StateSpaceSearch
 
         public static JarsState EmptyFromTo(int from, int to, JarsState currentState)
         {
-            JarsState newState = currentState.Clone();
+            var newState = currentState.Clone();
 
-            int spaceLeft = JarCapacity.Capacity[to] - currentState.Amount[to];
-            int availableToPour = currentState.Amount[from];
-            int pourAmount = (availableToPour < spaceLeft) ? availableToPour : spaceLeft;
+            var spaceLeft = JarsState.Capacity[to] - currentState.Amount[to];
+            var availableToPour = currentState.Amount[from];
+            var pourAmount = (availableToPour < spaceLeft) ? availableToPour : spaceLeft;
 
             newState.Amount[to] += pourAmount;
             newState.Amount[from] -= pourAmount;

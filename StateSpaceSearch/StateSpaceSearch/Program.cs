@@ -15,7 +15,7 @@ namespace StateSpaceSearch
                 JarsState.PrintSequence(solutionState);
             }
 
-            var depthFirstSolution = SearchState.Search(initialState, frontier1 => frontier1[frontier1.Count - 1]);
+            var depthFirstSolution = SearchState.Search(initialState, frontier => frontier[frontier.Count - 1]);
             foreach (var solutionState in depthFirstSolution)
             {
                 Console.WriteLine("Hurray !!!");
