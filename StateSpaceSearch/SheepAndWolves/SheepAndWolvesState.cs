@@ -18,22 +18,44 @@ namespace SheepAndWolves
 
         public bool IsGoal()
         {
-            return Side1.WolvesCount == 0
-                   && Side1.SheepCount == 0
-                   && Side2.WolvesCount == 3
-                   && Side2.SheepCount == 3;
+            return Side1.WolfCount == 3
+                   && Side1.SheepCount == 3
+                   && Side2.WolfCount == 0
+                   && Side2.SheepCount == 0;
         }
 
         public IEnumerable<IState> GetNextStates()
         {
-            throw new NotImplementedException();
+            var states = new List<SheepAndWolvesState>();
+
+            int sheepCount, wolfCount;
+            if (Side1.HasBoat)
+            {
+                sheepCount = Side1.SheepCount;
+                wolfCount = Side1.WolfCount;
+            }
+            else
+            {
+                sheepCount = Side2.SheepCount;
+                wolfCount = Side2.WolfCount;
+            }
+
+            for (var sheep = 0; sheep <= sheepCount; sheep++)
+            for (var wolf = 0; wolf <= wolfCount; wolf++)
+            {
+                if (sheep + wolf > 2 || sheep + wolf <= 0) continue;
+                var newState = StateAction.MoveBoat(sheep, wolf, this);
+                if(newState == null) continue;
+                states.Add(newState);
+            }
+
+            return states;
         }
 
         public override string ToString()
         {
             return
-                $@"{{Sheep:{Side1.SheepCount} Wolves:{Side1.WolvesCount} HasBoat:{Side1.HasBoat}
-                    | Sheep:{Side2.SheepCount} Wolves:{Side2.WolvesCount} HasBoat{Side2.HasBoat}}}";
+                $"{{{Side1.SheepCount} {Side1.WolfCount} {Side1.HasBoat} | {Side2.SheepCount} {Side2.WolfCount} {Side2.HasBoat}}}";
         }
 
         public static SheepAndWolvesState Clone(ref StateSide side1, ref StateSide side2)

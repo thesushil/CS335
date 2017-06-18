@@ -5,12 +5,38 @@ namespace SheepAndWolves
 {
     public static class StateAction
     {
-        public static SheepAndWolvesState MoveBoat(int sheepCount, int wolvesCount, SheepAndWolvesState currentState)
+        public static SheepAndWolvesState MoveBoat(int sheepCount, int wolvesCount,
+            SheepAndWolvesState currentState)
         {
-            var newSide1 = currentState.Side1;
-            var newSide2 = currentState.Side2;
+            var side1 = currentState.Side1;
+            var side2 = currentState.Side2;
 
-            var newState = SheepAndWolvesState.Clone(ref newSide1, ref newSide2);
+            if (side1.HasBoat)
+            {
+                side1.SheepCount -= sheepCount;
+                side2.SheepCount += sheepCount;
+
+                side1.WolfCount -= wolvesCount;
+                side2.WolfCount += wolvesCount;
+
+                side1.HasBoat = false;
+                side2.HasBoat = true;
+            }
+            else
+            {
+                side2.SheepCount -= sheepCount;
+                side1.SheepCount += sheepCount;
+
+                side2.WolfCount -= wolvesCount;
+                side1.WolfCount += wolvesCount;
+
+                side1.HasBoat = true;
+                side2.HasBoat = false;
+            }
+
+            if (side1.WolfCount > side1.SheepCount || side2.WolfCount > side2.SheepCount) return null;
+
+            var newState = SheepAndWolvesState.Clone(ref side1, ref side2);
             newState.Parent = currentState;
             return newState;
         }

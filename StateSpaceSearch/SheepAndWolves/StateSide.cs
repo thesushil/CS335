@@ -2,13 +2,13 @@
 {
     public struct StateSide
     {
-        public readonly int SheepCount, WolvesCount;
+        public int SheepCount, WolfCount;
         public bool HasBoat;
 
-        public StateSide(int sheepCount, int wolvesCount, bool hasBoat)
+        public StateSide(int sheepCount, int wolfCount, bool hasBoat)
         {
             SheepCount = sheepCount;
-            WolvesCount = wolvesCount;
+            WolfCount = wolfCount;
             HasBoat = hasBoat;
         }
     }
