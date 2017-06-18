@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace StateSpaceSearch
+namespace MeasureByJars
 {
     public class JarsState
     {

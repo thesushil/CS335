@@ -1,4 +1,4 @@
-﻿namespace StateSpaceSearch
+﻿namespace MeasureByJars
 {
     public static class StateAction
     {

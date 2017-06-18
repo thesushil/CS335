@@ -1,13 +1,15 @@
-﻿using StateSpaceSearch.ExtensionMethods;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using MeasureByJars;
+using MeasureByJars.ExtensionMethods;
 
 namespace StateSpaceSearch
 {
     public static class SearchState
     {
-        public static IEnumerable<JarsState> Search(JarsState initialState, Func<IList<JarsState>, JarsState> selectStateToOpen)
+        public static IEnumerable<JarsState> Search(JarsState initialState
+            , Func<IList<JarsState>, JarsState> selectStateToOpen)
         {
             IList<JarsState> solutionStates = new List<JarsState>();
             IList<JarsState> frontier = new List<JarsState>();
