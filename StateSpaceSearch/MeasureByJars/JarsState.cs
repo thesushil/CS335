@@ -1,77 +1,59 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
+using StateProblemCommons;
 
 namespace MeasureByJars
 {
-    public class JarsState
+    public class JarsState : AbstractState, IState
     {
+        public static readonly int[] Capacity = {3, 8, 12};
+
+        public readonly int[] Amount;
+
         public JarsState(int jar1, int jar2, int jar3)
         {
             Amount = new[] {jar1, jar2, jar3};
         }
 
-        public static bool IsGoal(JarsState currentState)
+        public bool IsGoal()
         {
-            var amount = currentState.Amount;
-            //return (amount[0] + amount[1] + amount[2] == 1);
-            return amount[0] == 1 || amount[1] == 1 || amount[2] == 1;
+            //var amount = currentState.Amount;
+            //return (Amount[0] + Amount[1] + Amount[2] == 1);
+            return Amount[0] == 1 || Amount[1] == 1 || Amount[2] == 1;
         }
 
-        public static IEnumerable<JarsState> GetNextStates(JarsState currentState)
+        public IEnumerable<IState> GetNextStates()
         {
-            var amount = currentState.Amount;
-
-            IList<JarsState> nextStates = new List<JarsState>();
+            IList<IState> nextStates = new List<IState>();
 
             for (var jar = 0; jar < 3; jar++)
             {
-                if (amount[jar] < Capacity[jar]) nextStates.Add(StateAction.Fill(jar, currentState));
+                if (Amount[jar] < Capacity[jar]) nextStates.Add(StateAction.Fill(jar, this));
 
-                if (amount[jar] <= 0) continue;
+                if (Amount[jar] <= 0) continue;
 
-                nextStates.Add(StateAction.EmptyJar(jar, currentState));
+                nextStates.Add(StateAction.EmptyJar(jar, this));
 
                 for (var to = 0; to < 3; to++)
                 {
-                    if (jar == to || amount[to] == Capacity[to]) continue;
+                    if (jar == to || Amount[to] == Capacity[to]) continue;
 
-                    nextStates.Add(StateAction.EmptyFromTo(jar, to, currentState));
+                    nextStates.Add(StateAction.EmptyFromTo(jar, to, this));
                 }
             }
 
             return nextStates;
         }
 
-        public static void PrintSequence(JarsState state)
-        {
-            IList<string> states = new List<string>();
-            while (state.Parent != null)
-            {
-                states.Add(state.ToString());
-                state = state.Parent;
-            }
-
-            foreach (var state1 in states.Reverse())
-            {
-                Console.WriteLine(state1);
-            }
-        }
-
-        public static readonly int[] Capacity = { 3, 8, 12 };
+        public IState Parent { get; set; }
 
         public JarsState Clone()
         {
             return new JarsState(Amount[0], Amount[1], Amount[2]);
         }
 
-        public readonly int[] Amount;
-
-        public JarsState Parent;
-
         public override string ToString()
         {
-            return string.Format("{{{0} {1} {2}}}", Amount[0], Amount[1], Amount[2]);
+            return $"{{{Amount[0]} {Amount[1]} {Amount[2]}}}";
         }
     }
 }

@@ -4,10 +4,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.26430.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StateSpaceSearch", "StateSpaceSearch\StateSpaceSearch.csproj", "{02E97F8E-D904-40AD-AE41-A1B9C3EF75BC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D2A7E646-5F8B-4CB7-922F-A6B0C5D5A609} = {D2A7E646-5F8B-4CB7-922F-A6B0C5D5A609}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StateSpaceSearchTest", "StateSpaceSearchTest\StateSpaceSearchTest.csproj", "{B6BD77F6-57C4-46B1-9868-160FB4DF345A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeasureByJars", "MeasureByJars\MeasureByJars.csproj", "{75BF0E56-9C41-43BB-8FC0-EE557EE3EA23}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SheepAndWolves", "SheepAndWolves\SheepAndWolves.csproj", "{6E452616-6D0D-410E-80B0-A0395336DA2B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StateProblemCommons", "StateProblemCommons\StateProblemCommons.csproj", "{D2A7E646-5F8B-4CB7-922F-A6B0C5D5A609}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +34,14 @@ Global
 		{75BF0E56-9C41-43BB-8FC0-EE557EE3EA23}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75BF0E56-9C41-43BB-8FC0-EE557EE3EA23}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75BF0E56-9C41-43BB-8FC0-EE557EE3EA23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E452616-6D0D-410E-80B0-A0395336DA2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E452616-6D0D-410E-80B0-A0395336DA2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E452616-6D0D-410E-80B0-A0395336DA2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E452616-6D0D-410E-80B0-A0395336DA2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2A7E646-5F8B-4CB7-922F-A6B0C5D5A609}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2A7E646-5F8B-4CB7-922F-A6B0C5D5A609}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2A7E646-5F8B-4CB7-922F-A6B0C5D5A609}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2A7E646-5F8B-4CB7-922F-A6B0C5D5A609}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
