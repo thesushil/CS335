@@ -45,7 +45,7 @@ namespace SheepAndWolves
             {
                 if (sheep + wolf > 2 || sheep + wolf <= 0) continue;
                 var newState = StateAction.MoveBoat(sheep, wolf, this);
-                if(newState == null) continue;
+                if (newState == null) continue;
                 states.Add(newState);
             }
 
@@ -55,7 +55,7 @@ namespace SheepAndWolves
         public override string ToString()
         {
             return
-                $"{{{Side1.SheepCount} {Side1.WolfCount} {Side1.HasBoat} | {Side2.SheepCount} {Side2.WolfCount} {Side2.HasBoat}}}";
+                $"{{{Side1.SheepCount} {Side1.WolfCount} {(Side1.HasBoat ? "T" : "F")} | {Side2.SheepCount} {Side2.WolfCount} {(Side2.HasBoat ? "T" : "F")}}}";
         }
 
         public static SheepAndWolvesState Clone(ref StateSide side1, ref StateSide side2)

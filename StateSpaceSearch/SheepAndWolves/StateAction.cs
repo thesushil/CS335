@@ -34,7 +34,8 @@ namespace SheepAndWolves
                 side2.HasBoat = false;
             }
 
-            if (side1.WolfCount > side1.SheepCount || side2.WolfCount > side2.SheepCount) return null;
+            if (side1.WolfCount > side1.SheepCount && side1.SheepCount > 0 
+                || side2.WolfCount > side2.SheepCount && side2.SheepCount > 0) return null;
 
             var newState = SheepAndWolvesState.Clone(ref side1, ref side2);
             newState.Parent = currentState;

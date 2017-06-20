@@ -45,16 +45,20 @@ namespace StateSpaceSearch
             var breadthFirstSolution = SearchState.Search(initialState, frontier => frontier[0]);
             foreach (var solutionState in breadthFirstSolution)
             {
-                Console.WriteLine("Hurray !!!");
+                Console.WriteLine("Breadth First Search:");
+                Console.WriteLine("{S W B | S W B}");
+                Console.WriteLine(initialState);
                 Console.WriteLine(AbstractState.BuildSequence(solutionState));
             }
 
-//            var depthFirstSolution = SearchState.Search(initialState, frontier => frontier[frontier.Count - 1]);
-//            foreach (var solutionState in depthFirstSolution)
-//            {
-//                Console.WriteLine("Hurray !!!");
-//                Console.WriteLine(AbstractState.BuildSequence(solutionState));
-//            }
+            var depthFirstSolution = SearchState.Search(initialState, frontier => frontier[frontier.Count - 1]);
+            foreach (var solutionState in depthFirstSolution)
+            {
+                Console.WriteLine("Depth First Search:");
+                Console.WriteLine("{S W B | S W B}");
+                Console.WriteLine(initialState);
+                Console.WriteLine(AbstractState.BuildSequence(solutionState));
+            }
         }
     }
 }
