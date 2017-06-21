@@ -14,8 +14,6 @@ namespace SheepAndWolves
             Side2 = side2;
         }
 
-        public IState Parent { get; set; }
-
         public bool IsGoal()
         {
             return Side1.WolfCount == 3

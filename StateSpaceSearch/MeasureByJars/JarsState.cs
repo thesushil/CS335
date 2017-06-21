@@ -44,8 +44,6 @@ namespace MeasureByJars
             return nextStates;
         }
 
-        public IState Parent { get; set; }
-
         public JarsState Clone()
         {
             return new JarsState(Amount[0], Amount[1], Amount[2]);

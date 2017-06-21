@@ -6,6 +6,8 @@ namespace StateProblemCommons
 {
     public class AbstractState
     {
+        public IState Parent { get; set; }
+
         public static string BuildSequence(IState state)
         {
             IList<string> states = new List<string>();
