@@ -16,6 +16,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SheepAndWolves", "SheepAndW
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StateProblemCommons", "StateProblemCommons\StateProblemCommons.csproj", "{D2A7E646-5F8B-4CB7-922F-A6B0C5D5A609}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Slide8Puzzle", "Slide8Puzzle\Slide8Puzzle.csproj", "{CF0E480C-289B-40F3-B8D1-F276E224B995}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,6 +44,10 @@ Global
 		{D2A7E646-5F8B-4CB7-922F-A6B0C5D5A609}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D2A7E646-5F8B-4CB7-922F-A6B0C5D5A609}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D2A7E646-5F8B-4CB7-922F-A6B0C5D5A609}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF0E480C-289B-40F3-B8D1-F276E224B995}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF0E480C-289B-40F3-B8D1-F276E224B995}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF0E480C-289B-40F3-B8D1-F276E224B995}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF0E480C-289B-40F3-B8D1-F276E224B995}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
