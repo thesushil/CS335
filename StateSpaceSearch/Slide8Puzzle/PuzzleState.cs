@@ -21,8 +21,9 @@ namespace Slide8Puzzle
 
         public IEnumerable<IState> GetNextStates()
         {
-            //var emptySlot = FindEmptySlot();
-            //emptySlot
+            // var emptySlot = FindEmptySlot();
+            // emptySlot
+            throw new NotImplementedException();
         }
 
         //private (int, int) FindEmptySlot()
